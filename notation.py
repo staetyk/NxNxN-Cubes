@@ -69,9 +69,9 @@ help = """• \u001b[1mHELP: \u001b[22;3mShows list of commands.\u001b[23m
 • \u001b[1mR: \u001b[22;3mTurns the right layer 90° clockwise.\u001b[23m
 • \u001b[1mU': \u001b[22;3mTurns the top layer 90° counterclockwise.\u001b[23m
 • \u001b[1mU2: \u001b[22;3mTurns the top layer 180°.\u001b[23m
-• \u001b[1m#U: \u001b[22;3mTurns the #ᵗʰ layer from the top 90° clockwise.\u001b[23m
+• \u001b[1;4m#\u001b[24mU: \u001b[22;3mTurns the \u001b[4m#\u001b[24mᵗʰ layer from the top 90° clockwise.\u001b[23m
 • \u001b[1mUw: \u001b[22;3mTurns the second layer from the top 90° clockwise.\u001b[23m
-• \u001b[1m#Uw: \u001b[22;3mTurns the top # layers 90° clockwise.\u001b[23m
+• \u001b[1;4m#\u001b[24mUw: \u001b[22;3mTurns the top \u001b[4m#\u001b[24m layers 90° clockwise.\u001b[23m
 
 • \u001b[1mX: \u001b[22;3mTurns the entire cube 90° clockwise, relative to the left face.\u001b[23m
 • \u001b[1mY: \u001b[22;3mTurns the entire cube 90° clockwise, relative to the top face.\u001b[23m
