@@ -10,7 +10,7 @@ A simulation of ANY NxNxN Rubik’s Cube, using standard cubing notation.
 | `RESIZE` | Changes size of cube. |
 | `HISTORY` | Shows past moves. |
 | `CLEAR` | Clears past moves. |
-| ​ | ​ |
+| | |
 | `U` | Turns top layer 90° clockwise. |
 | `D` | Turns bottom layer 90° clockwise. |
 | `F` | Turns front layer 90° clockwise. |
@@ -22,13 +22,13 @@ A simulation of ANY NxNxN Rubik’s Cube, using standard cubing notation.
 | `#U` | Turns `#`th layer from the top 90° clockwise, relative to top layer. |
 | `Uw` | Turns top two layers 90° clockwise. |
 | `#Uw` | Turns top `#` layers 90° clockwise. |
-| ​ | ​ |
+| | |
 | `X` | Rotates entire cube 90° clockwise, relative to left layer. |
 | `Y` | Rotates entire cube 90° clockwise, relative to top layer. |
 | `Z` | Rotates entire cube 90° clockwise, relative to front layer. |
 | `X'` | Rotates entire cube 90° counterclockwise, relative to left layer. |
 | `X2` | Rotates entire cube 180°, relative to left layer. |
-| ​ | ​ |
+| | |
 | `U F` | Turns top layer 90° clockwise, then turns front layer 90° clockwise. |
 | `(…)` | Same as `…`. |
 | `(…)#` | Runs through `…` a total of `#` times. |
