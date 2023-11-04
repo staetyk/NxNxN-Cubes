@@ -71,25 +71,31 @@ def convert(n: int = NxN.n, alg: str = "") -> str:
 
 
 help = """• \u001b[1mHELP: \u001b[22;3mShows list of commands.\u001b[23m
-• \u001b[1mRESET: \u001b[22;3mResets the cube to solved state.\u001b[23m
+• \u001b[1mRESET: \u001b[22;3mResets cube to solved state.\u001b[23m
 • \u001b[1mEXIT: \u001b[22;3mTerminates program.\u001b[23m
-• \u001b[1mRESIZE: \u001b[22;3mLets you resize the cube.\u001b[23m
+• \u001b[1mRESIZE: \u001b[22;3mChanges size of cube.\u001b[23m
 • \u001b[1mHISTORY: \u001b[22;3mShows past moves.\u001b[23m
 • \u001b[1mCLEAR: \u001b[22;3mClears past moves.\u001b[23m
-• \u001b[1mU: \u001b[22;3mTurns the top layer 90° clockwise.\u001b[23m
-• \u001b[1mD: \u001b[22;3mTurns the bottom layer 90° clockwise.\u001b[23m
-• \u001b[1mF: \u001b[22;3mTurns the front layer 90° clockwise.\u001b[23m
-• \u001b[1mB: \u001b[22;3mTurns the back layer 90° clockwise.\u001b[23m
-• \u001b[1mL: \u001b[22;3mTurns the left layer 90° clockwise.\u001b[23m
-• \u001b[1mR: \u001b[22;3mTurns the right layer 90° clockwise.\u001b[23m
-• \u001b[1mU': \u001b[22;3mTurns the top layer 90° counterclockwise.\u001b[23m
-• \u001b[1mU2: \u001b[22;3mTurns the top layer 180°.\u001b[23m
-• \u001b[1;4m#\u001b[24mU: \u001b[22;3mTurns the \u001b[4m#\u001b[24mᵗʰ layer from the top 90° clockwise.\u001b[23m
-• \u001b[1mUw: \u001b[22;3mTurns the second layer from the top 90° clockwise.\u001b[23m
-• \u001b[1;4m#\u001b[24mUw: \u001b[22;3mTurns the top \u001b[4m#\u001b[24m layers 90° clockwise.\u001b[23m
-• \u001b[1mX: \u001b[22;3mTurns the entire cube 90° clockwise, relative to the left face.\u001b[23m
-• \u001b[1mY: \u001b[22;3mTurns the entire cube 90° clockwise, relative to the top face.\u001b[23m
-• \u001b[1mZ: \u001b[22;3mTurns the entire cube 90° clockwise, relative to the front face.\u001b[23m
-• \u001b[1mX': \u001b[22;3mTurns the entire cube 90° counterclockwise, relative to the left face.\u001b[23m
-• \u001b[1mX2: \u001b[22;3mTurns the entire cube 180°, relative to the left face.\u001b[23m
-• \u001b[1m(\u001b[4m…\u001b[24m)\u001b[4m#\u001b[24m: \u001b[22;3mRuns through \u001b[4m…\u001b[24m a total of \u001b[4m#\u001b[24m times.\u001b[23m"""
+
+• \u001b[1mU: \u001b[22;3mTurns top layer 90° clockwise.\u001b[23m
+• \u001b[1mD: \u001b[22;3mTurns bottom layer 90° clockwise.\u001b[23m
+• \u001b[1mF: \u001b[22;3mTurns front layer 90° clockwise.\u001b[23m
+• \u001b[1mB: \u001b[22;3mTurns back layer 90° clockwise.\u001b[23m
+• \u001b[1mL: \u001b[22;3mTurns left layer 90° clockwise.\u001b[23m
+• \u001b[1mR: \u001b[22;3mTurns right layer 90° clockwise.\u001b[23m
+• \u001b[1mU': \u001b[22;3mTurns top layer 90° counterclockwise.\u001b[23m
+• \u001b[1mU2: \u001b[22;3mTurns top layer 180°.\u001b[23m
+• \u001b[1;4m#\u001b[24mU: \u001b[22;3mTurns \u001b[4m#\u001b[24mᵗʰ layer from the top 90° clockwise.\u001b[23m
+• \u001b[1mUw: \u001b[22;3mTurns second layer from the top 90° clockwise.\u001b[23m
+• \u001b[1;4m#\u001b[24mUw: \u001b[22;3mTurns top \u001b[4m#\u001b[24m layers 90° clockwise.\u001b[23m
+
+• \u001b[1mX: \u001b[22;3mTurns entire cube 90° clockwise, relative to left layer.\u001b[23m
+• \u001b[1mY: \u001b[22;3mTurns entire cube 90° clockwise, relative to top layer.\u001b[23m
+• \u001b[1mZ: \u001b[22;3mTurns entire cube 90° clockwise, relative to front layer.\u001b[23m
+• \u001b[1mX': \u001b[22;3mTurns entire cube 90° counterclockwise, relative to left layer.\u001b[23m
+• \u001b[1mX2: \u001b[22;3mTurns entire cube 180°, relative to left layer.\u001b[23m
+
+• \u001b[1mU F: \u001b[22;3mTurns top layer 90° clockwise, then turns front layer 90° clockwise.\u001b[23m
+• \u001b[1m(\u001b[4m…\u001b[24m): \u001b[22;3Same as \u001b[4m…\u001b[24m.\u001b[23m
+• \u001b[1m(\u001b[4m…\u001b[24m)\u001b[4m#\u001b[24m: \u001b[22;3mRuns through \u001b[4m…\u001b[24m a total of \u001b[4m#\u001b[24m times.\u001b[23m
+• \u001b[1m: \u001b[22;3mRuns most recent moves again.\u001b[23m"""
