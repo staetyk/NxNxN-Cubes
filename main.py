@@ -39,7 +39,7 @@ while True:
             NxN.display()
 
         elif cmd.upper() == "HELP":
-            print (f"\u001b[2J\u001b[H\u001b[m{notation.help}\u001b[m" + "\n" * n)
+            print (f"\u001b[2J\u001b[H\u001b[m{notation.help}\u001b[m", sep = "", end = "")
             input()
             NxN.display()
 
