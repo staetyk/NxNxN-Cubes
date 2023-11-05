@@ -3,9 +3,8 @@ A simulation of ANY NxNxN Rubik’s Cube, using standard cubing notation.
 
 ## Notation:
 
-| :---: | :---: |
 | **Command** | **Description** |
-| :---: | :---- |
+| :---: | |
 | `HELP` | Shows list of commands. |
 | `EXIT` | Terminates program. |
 | `RESET` | Resets cube to solved state. |
