@@ -15,7 +15,7 @@ while True:
             NxN.display()
         
         elif cmd.upper() == "RESET":
-            history += cmd
+            history.append(cmd)
             NxN.init(n)
             NxN.display()
         
@@ -24,7 +24,7 @@ while True:
             break
         
         elif cmd.upper() == "RESIZE":
-            history += cmd
+            history.append(cmd)
             n = NxN.init(int(input("\u001b[2J\u001b[H\u001b[mN = ") or n))
             NxN.display()
         
@@ -44,7 +44,7 @@ while True:
             NxN.display()
 
         else:
-            history += cmd
+            history.append(cmd)
             last = cmd
             exec(notation.convert(n, cmd))
 
