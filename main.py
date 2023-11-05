@@ -68,5 +68,5 @@ while True:
             last = cmd
             exec(notation.convert(n, cmd))
 
-    except Exception() as _:
+    except Exception as _:
        NxN.display()
