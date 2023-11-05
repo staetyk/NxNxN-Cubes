@@ -20,7 +20,7 @@ A simulation of ANY NxNxN Rubik’s Cube, using standard cubing notation.
 | `B` | Turns back layer 90° clockwise. |
 | `R` | Turns right layer 90° clockwise. |
 | `L` | Turns left layer 90° clockwise. |
-| `_U_'` | Turns top layer 90° counterclockwise. |
+| `U'` | Turns top layer 90° counterclockwise. |
 | `U2` | Turns top layer 180°. |
 | `#U` | Turns `#`th layer from the top 90° clockwise, relative to top layer. |
 | `Uw` | Turns top two layers 90° clockwise. |
