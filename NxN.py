@@ -1,5 +1,6 @@
 from collections.abc import Callable
 import math
+import os
 
 
 scheme = {
@@ -176,6 +177,12 @@ def display() -> None:
     layout += " " * (n * 2 + 3)
     layout += "\u2517"
     layout += "\u2501" * (n * 2 + 2)
-    layout += "\u251b\n"
+    layout += "\u251b"
 
-    print (layout)
+    shown = ""
+    for x in layout.split("\n"):
+        x += " " * (((n * 6) + 10) - len(x))
+        x = x.center(os.get_terminal_size()[0])
+        shown += x + "\n"
+    
+    print (shown)

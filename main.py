@@ -1,11 +1,18 @@
 import notation
 import NxN
 import os
+import time
 
 
 checkW = lambda x : os.get_terminal_size()[0] >= ((6 * x) + 10)
 checkH = lambda x : os.get_terminal_size()[1] >= ((8 * x) + 13)
 checkSize = lambda x : checkW() and checkH()
+
+
+def error(x: BaseException | Exception) -> None:
+    print (f"\u001b[2J\u001b[H\u001b[m\u001b[1;38;2;255;0;0m{str(x)}\u001b[m", sep = "", end = "")
+    time.sleep(3)
+    NxN.display()
 
 
 n = 3
@@ -64,9 +71,15 @@ while True:
             NxN.display()
 
         else:
-            history.append(cmd)
-            last = cmd
-            exec(notation.convert(n, cmd))
+            try:
+                notation.convert(n, cmd)
+            except NameError as e:
+                error(e)
+            else:
+                history.append(cmd)
+                last = cmd
 
-    except Exception as _:
-       NxN.display()
+    except BaseException as e:
+        error(e)
+    except Exception as e:
+        error(e)

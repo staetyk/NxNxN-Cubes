@@ -33,3 +33,4 @@ A simulation of ANY NxNxN Rubik’s Cube, using standard cubing notation.
 | `(…)` | Same as `…`. |
 | `(…)#` | Runs through `…` a total of `#` times. |
 | `​` | Runs most recent moves again. |
+| `name = …` | Defines `name` as an alias for `…`. |

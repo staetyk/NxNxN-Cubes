@@ -1,10 +1,34 @@
 import NxN
 
 
+algNames = {}
+
+
 def convert(n: int = NxN.n, alg: str = "") -> str:
-    alg = alg.upper()\
-    .replace("(", "( ").replace(")", " )")\
-    .split(" ")
+    alg = alg.upper().strip(" ")\
+    .replace("(", "( ").replace(")", " )")
+    
+
+    global algNames
+    if "=" in alg:
+        alg = alg.split(" = ")
+        if alg[0][0] not in "0123456789UDFBRLXYZ(":
+            alg[1] = f" {alg[1]} "
+            for x, y in algNames.items():
+                alg[1] = alg[1].replace(f" {x} ", f" {y} ")
+            alg[1] = alg[1].strip(" ")
+            algNames.update({alg[0] : alg[1]})
+            
+        else:
+            return NameError(f"{alg[0]} is not a valid alg name")
+            
+    
+    else:
+        alg = f" {alg} "
+        for x, y in algNames.items():
+            alg.replace(f" {x} ", f" {y} ")
+        alg = alg.strip(" ").split(" ")
+        
 
     iterator = 0
     code = ""
@@ -98,4 +122,5 @@ help = """• \u001b[1mHELP: \u001b[22;3mShows list of commands.\u001b[23m
 • \u001b[1mU F: \u001b[22;3mTurns top layer 90° clockwise, then turns front layer 90° clockwise.\u001b[23m
 • \u001b[1m(\u001b[4m…\u001b[24m): \u001b[22;3Same as \u001b[4m…\u001b[24m.\u001b[23m
 • \u001b[1m(\u001b[4m…\u001b[24m)\u001b[4m#\u001b[24m: \u001b[22;3mRuns through \u001b[4m…\u001b[24m a total of \u001b[4m#\u001b[24m times.\u001b[23m
-• \u001b[1m: \u001b[22;3mRuns most recent moves again.\u001b[23m"""
+• \u001b[1m: \u001b[22;3mRuns most recent moves again.\u001b[23m
+• \u001b[1;4mname\u001b[24m = \u001b[4m…\u001b[24m: \u001b[22;3mDefines \u001b[4mname\u001b[24m as an alias for \u001b[4m…\u001b[24m.\u001b[23m"""
