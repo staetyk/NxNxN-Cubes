@@ -1,8 +1,28 @@
 import notation
 import NxN
+import os
 
-n = NxN.init(int(input("\u001b[HN = ") or 3))
 
+checkW = lambda x : os.get_terminal_size()[0] >= ((6 * x) + 10)
+checkH = lambda x : os.get_terminal_size()[1] >= ((8 * x) + 13)
+checkSize = lambda x : checkW() and checkH()
+
+
+n = 3
+
+def changeSize() -> None:
+    global n
+    while True:
+        N = NxN.init(int(input("\u001b[HN = ") or n))
+        if not checkSize(N):
+            print("\u001b[1;31mError: Terminal size too small.\u001b[0m")
+        else:
+            break
+    n = N
+
+changeSize()
+
+             
 history = []
 last = ""
 
@@ -25,7 +45,7 @@ while True:
         
         elif cmd.upper() == "RESIZE":
             history.append(cmd)
-            n = NxN.init(int(input("\u001b[2J\u001b[H\u001b[mN = ") or n))
+            changeSize()
             NxN.display()
         
         elif cmd.upper() == "HISTORY":
