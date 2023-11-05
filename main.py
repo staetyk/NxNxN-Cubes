@@ -1,17 +1,17 @@
 import notation
 import NxN
 import os
-import time
 
 
-checkW = lambda x : os.get_terminal_size()[0] >= ((6 * x) + 10)
-checkH = lambda x : os.get_terminal_size()[1] >= ((8 * x) + 13)
-checkSize = lambda x : checkW() and checkH()
+
+checkW = lambda x : os.get_terminal_size().columns >= ((x * 6) + 10)
+checkH = lambda x : os.get_terminal_size().lines >= ((x * 8) + 5)
+checkSize = lambda x : checkW(x) and checkH(x)
 
 
 def error(x: BaseException | Exception) -> None:
-    print (f"\u001b[2J\u001b[H\u001b[m\u001b[1;38;2;255;0;0m{str(x)}\u001b[m", sep = "", end = "")
-    time.sleep(3)
+    print (f"\u001b[2J\u001b[H\u001b[m\u001b[1;38;2;255;0;0m{str(x.args).strip('(').strip(')')}\u001b[m", sep = "", end = "")
+    input()
     NxN.display()
 
 
@@ -19,13 +19,13 @@ n = 3
 
 def changeSize() -> None:
     global n
-    while True:
-        N = NxN.init(int(input("\u001b[HN = ") or n))
-        if not checkSize(N):
-            print("\u001b[1;31mError: Terminal size too small.\u001b[0m")
-        else:
-            break
-    n = N
+    N = int(input("\u001b[2J\u001b[H\u001b[mN = \u001b[4m") or n)
+    print("\u001b[24m")
+    if not checkSize(N):
+        error(Exception("Terminal size too small."))
+        changeSize()
+    else:
+        n = NxN.init(N)
 
 changeSize()
 
@@ -39,9 +39,9 @@ while True:
 
     try:
         if cmd == "":
-            NxN.display()
+            pass
         
-        elif cmd.upper() == "RESET":
+        if cmd.upper() == "RESET":
             history.append(cmd)
             NxN.init(n)
             NxN.display()
@@ -72,14 +72,13 @@ while True:
 
         else:
             try:
-                notation.convert(n, cmd)
-            except NameError as e:
+                txt = notation.convert(n, cmd)
+            except Exception as e:
                 error(e)
             else:
+                exec(txt)
                 history.append(cmd)
                 last = cmd
 
-    except BaseException as e:
-        error(e)
     except Exception as e:
         error(e)

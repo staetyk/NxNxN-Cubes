@@ -20,7 +20,7 @@ def convert(n: int = NxN.n, alg: str = "") -> str:
             algNames.update({alg[0] : alg[1]})
             
         else:
-            return NameError(f"{alg[0]} is not a valid alg name")
+            raise Exception(f"'{alg[0]}' is not a valid alg name")
             
     
     else:

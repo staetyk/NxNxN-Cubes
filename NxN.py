@@ -122,67 +122,71 @@ M3 = lambda l = n // 2: exec(f"M({l}); M({l}); M({l})")
 
 
 def display() -> None:
-    layout = "\u001b[2J\u001b[H\u001b[m\u001b[38;2;64;64;64m"
-    layout += " " * (n * 2 + 3)
-    layout += "\u250f"
-    layout += "\u2501" * (n * 2 + 2)
-    layout += "\u2513\n"
+    layout = "\u250fC"
+    layout += "\u2501C" * (n * 2 + 2)
+    layout += "\u2513CN"
     for i in range(n):
-        layout += " " * (n * 2 + 3)
-        layout += "\u2503 "
+        layout += "\u2503C C"
         for j in range(n):
             layout += scheme[state[0][i][j]]
-        layout += " \u2503\n"
-    layout += "\u250f"
-    layout += "\u2501" * (n * 2 + 2)
-    layout += "\u254b"
-    layout += "\u2501" * (n * 2 + 2)
-    layout += "\u254b"
-    layout += "\u2501" * (n * 2 + 2)
-    layout += "\u2513\n"
+            layout += "CC"
+        layout += " C\u2503CN"
+    layout += "\u250fC"
+    layout += "\u2501C" * (n * 2 + 2)
+    layout += "\u254bC"
+    layout += "\u2501C" * (n * 2 + 2)
+    layout += "\u254bC"
+    layout += "\u2501C" * (n * 2 + 2)
+    layout += "\u2513CN"
     for i in range(n):
-        layout += "\u2503 "
+        layout += "\u2503C C"
         for j in range(n):
             layout += scheme[state[5][i][j]]
-        layout += " \u2503 "
+            layout += "CC"
+        layout += " C\u2503C C"
         for j in range(n):
             layout += scheme[state[2][i][j]]
-        layout += " \u2503 "
+            layout += "CC"
+        layout += " C\u2503C C"
         for j in range(n):
             layout += scheme[state[4][i][j]]
-        layout += " \u2503\n"
-    layout += "\u2517"
-    layout += "\u2501" * (n * 2 + 2)
-    layout += "\u254b"
-    layout += "\u2501" * (n * 2 + 2)
-    layout += "\u254b"
-    layout += "\u2501" * (n * 2 + 2)
-    layout += "\u251b\n"
+            layout += "CC"
+        layout += " C\u2503CN"
+    layout += "\u2517C"
+    layout += "\u2501C" * (n * 2 + 2)
+    layout += "\u254bC"
+    layout += "\u2501C" * (n * 2 + 2)
+    layout += "\u254bC"
+    layout += "\u2501C" * (n * 2 + 2)
+    layout += "\u251bCN"
     for i in range(n):
-        layout += " " * (n * 2 + 3)
-        layout += "\u2503 "
+        layout += "\u2503C C"
         for j in range(n):
             layout += scheme[state[1][i][j]]
-        layout += " \u2503\n"
-    layout += " " * (n * 2 + 3)
-    layout += "\u2523"
-    layout += "\u2501" * (n * 2 + 2)
-    layout += "\u252b\n"
+            layout += "CC"
+        layout += " C\u2503CN"
+    layout += "\u2523C"
+    layout += "\u2501C" * (n * 2 + 2)
+    layout += "\u252bCN"
     for i in range(n):
-        layout += " " * (n * 2 + 3)
-        layout += "\u2503 "
+        layout += "\u2503C C"
         for j in range(n):
             layout += scheme[state[3][i][j]]
-        layout +=" \u2503\n"
-    layout += " " * (n * 2 + 3)
-    layout += "\u2517"
-    layout += "\u2501" * (n * 2 + 2)
-    layout += "\u251b"
+            layout += "CC"
+        layout +=" C\u2503CN"
+    layout += "\u2517C"
+    layout += "\u2501C" * (n * 2 + 2)
+    layout += "\u251bC"
 
-    shown = ""
-    for x in layout.split("\n"):
-        x += " " * (((n * 6) + 10) - len(x))
-        x = x.center(os.get_terminal_size()[0])
-        shown += x + "\n"
-    
+    shown = "\u001b[2J\u001b[H\u001b[m\u001b[38;2;64;64;64m"
+    layout = layout.split("N")
+    w = os.get_terminal_size().columns
+    for x in layout:
+        shown += ("x" * x.count("C"))\
+        .title()\
+        .center(w)\
+        .replace("x", "")\
+        .replace("X", x.replace("C", ""))\
+        + "\n"
+        
     print (shown)
