@@ -5,12 +5,12 @@ import os
 
 
 checkW = lambda x : os.get_terminal_size().columns >= ((x * 6) + 10)
-checkH = lambda x : os.get_terminal_size().lines >= ((x * 8) + 5)
-checkSize = lambda x : checkW(x) and checkH(x)
+# checkH = lambda x : os.get_terminal_size().lines >= ((x * 8) + 5)
+checkSize = lambda x : checkW(x) # and checkH(x)
 
 
 def error(x: BaseException | Exception) -> None:
-    print (f"\u001b[2J\u001b[H\u001b[m\u001b[1;38;2;255;0;0m{str(x.args).strip('(').strip(')')}\u001b[m", sep = "", end = "")
+    print (f"\u001b[2J\u001b[H\u001b[m\u001b[1;38;2;255;0;0m{str(x.args[0]).strip('(').strip(')')}\u001b[m", sep = "", end = "")
     input()
     NxN.display()
 
