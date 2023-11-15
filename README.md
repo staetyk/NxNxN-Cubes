@@ -42,3 +42,13 @@ A simulation of ANY NxNxN Rubik’s Cube, using standard cubing notation.
 | `​` | Runs most recent moves again. |
 | `name = …` | Defines `name` as alias for `…`. |
 | `name` | Runs algorithm that `name` is alias of. |
+
+### Slicing:
+
+As this is a generalized NxN cube simulation, the 3x3-specific `M`, `S`, and `E` moves are not included. However, there is a simple way to include them without changing the code:
+
+```
+>> M = 2L
+>> S = 2F
+>> E = 2U
+```
