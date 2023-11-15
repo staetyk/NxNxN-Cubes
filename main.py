@@ -10,9 +10,15 @@ checkSize = lambda x : checkW(x) # and checkH(x)
 
 
 def error(x: BaseException | Exception) -> None:
-    print (f"\u001b[2J\u001b[H\u001b[m\u001b[1;38;2;255;0;0m{str(x.args[0]).strip('(').strip(')')}\u001b[m", sep = "", end = "")
-    input()
-    NxN.display()
+    """try:
+        print ("\u001b[2J\u001b[H\u001b[m", end = "")
+        raise x
+    except:
+        print (f"\u001b[2J\u001b[H\u001b[m\u001b[1;38;2;255;0;0m{str(x.args[0]).strip('(').strip(')')}\u001b[m", sep = "\n", end = "")
+    finally:
+        input()
+        NxN.display()"""
+    raise x
 
 
 n = 3

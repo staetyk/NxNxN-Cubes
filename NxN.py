@@ -89,10 +89,6 @@ Y = Y1 = lambda: exec("U(n-1); D3(1)")
 Z = Z1 = lambda: exec("F(n-1); B3(1)")
 X = X1 = lambda: exec("L(n-1); R3(1)")
 
-E = E1 = lambda l = n // 2: slice(turnU, l, True)
-S = S1 = lambda l = n // 2: slice(turnF, l, True)
-M = M1 = lambda l = n // 2: slice(turnL, l, False)
-
 U2 = lambda l = 1: exec(f"U({l}); U({l})")
 U3 = lambda l = 1: exec(f"U({l}); U({l}); U({l})")
 D2 = lambda l = 1: exec(f"D({l}); D({l})")
@@ -112,13 +108,6 @@ Z2 = lambda: exec("Z(); Z()")
 Z3 = lambda: exec("Z(); Z(); Z()")
 X2 = lambda: exec("X(); X()")
 X3 = lambda: exec("X(); X(); X()")
-
-E2 = lambda l = n // 2: exec(f"E({l}); E({l})")
-E3 = lambda l = n // 2: exec(f"E({l}); E({l}); E({l})")
-S2 = lambda l = n // 2: exec(f"S({l}); S({l})")
-S3 = lambda l = n // 2: exec(f"S({l}); S({l}); S({l})")
-M2 = lambda l = n // 2: exec(f"M({l}); M({l})")
-M3 = lambda l = n // 2: exec(f"M({l}); M({l}); M({l})")
 
 
 def display() -> None:
