@@ -12,7 +12,7 @@ def convert(n: int = NxN.n, alg: str = "") -> str:
     global algNames
     if "=" in alg:
         alg = alg.split(" = ")
-        if alg[0][0] not in "0123456789UDFBRLXYZ()'":
+        if alg[0][0] not in "0123456789UDFBRLXYZ()'?":
             alg[1] = f" {alg[1]} "
             for x, y in algNames.items():
                 alg[1] = alg[1].replace(f" {x} ", f" {y} ")
