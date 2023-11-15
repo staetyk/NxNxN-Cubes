@@ -22,6 +22,11 @@ def convert(n: int = NxN.n, alg: str = "") -> str:
         else:
             raise Exception(f"'{alg[0]}' is not a valid alg name")
             
+            
+    elif "?" in alg:
+        alg = alg.replace("?", "").replace(" ", "")
+        print(f"\u001b[2J\u001b[H\u001b[m{alg} = {algNames[alg]}
+            
     
     else:
         alg = f" {alg} "
