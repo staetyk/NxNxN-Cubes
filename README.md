@@ -42,6 +42,7 @@ A simulation of ANY NxNxN Rubik’s Cube, using standard cubing notation.
 | `​` | Runs most recent moves again. |
 | `name = …` | Defines `name` as alias for `…`. |
 | `name` | Runs algorithm that `name` is alias of. |
+| `? name` | Shows algorithm that `name` is alias of. |
 
 ### Slicing:
 
