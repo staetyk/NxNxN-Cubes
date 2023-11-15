@@ -52,3 +52,14 @@ As this is a generalized NxN cube simulation, the 3x3-specific `M`, `S`, and `E`
 >> S = 2F
 >> E = 2U
 ```
+
+You can also add on to it:
+
+```
+>> M' = 2L'
+>> M2 = 2L2
+>> S' = 2F'
+>> S2 = 2F2
+>> E' = 2U'
+>> E2 = 2U2
+```
