@@ -12,7 +12,7 @@ def convert(n: int = NxN.n, alg: str = "") -> str:
     global algNames
     if "=" in alg:
         alg = alg.split(" = ")
-        if alg[0][0] not in "0123456789UDFBRLXYZ(":
+        if alg[0][0] not in "0123456789UDFBRLXYZ()'":
             alg[1] = f" {alg[1]} "
             for x, y in algNames.items():
                 alg[1] = alg[1].replace(f" {x} ", f" {y} ")
@@ -21,6 +21,13 @@ def convert(n: int = NxN.n, alg: str = "") -> str:
             
         else:
             raise Exception(f"'{alg[0]}' is not a valid alg name")
+            
+            
+    elif alg[0] == "?":
+        alg = alg.lstrip("?", "").strip(" ")
+                print(f"\u001b[2J\u001b[H\u001b[m{alg} = {algNames[alg]}")
+        input()
+        return "NxN.display()"
             
     
     else:
@@ -124,4 +131,5 @@ help = """• \u001b[1mHELP: \u001b[22;3mShows list of commands.\u001b[23m
 • \u001b[1m(\u001b[4m…\u001b[24m)\u001b[4m#\u001b[24m: \u001b[22;3mRuns through \u001b[4m…\u001b[24m a total of \u001b[4m#\u001b[24m times.\u001b[23m
 • \u001b[1m: \u001b[22;3mRuns most recent moves again.\u001b[23m
 • \u001b[1;4mname\u001b[24m = \u001b[4m…\u001b[24m: \u001b[22;3mDefines \u001b[4mname\u001b[24m as alias for \u001b[4m…\u001b[24m.\u001b[23m
-• \u001b[1;4mname\u001b[24m: \u001b[22;3mRuns the algorithm that \u001b[4mname\u001b[24m is alias of.\u001b[23m"""
+• \u001b[1;4mname\u001b[24m: \u001b[22;3mRuns the algorithm that \u001b[4mname\u001b[24m is alias of.\u001b[23m
+• \u001b[1m? \u001b[4mname\u001b[24m: \u001b[22;3mShows algorithm that \u001b[4mname\u001b[24m is alias of.\u001b[23m"""
